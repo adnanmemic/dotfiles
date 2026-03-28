@@ -4,23 +4,25 @@ oh-my-posh init pwsh --config 'C:\Users\adnan\AppData\Local\Programs\oh-my-posh\
 # load icons
 Import-Module -Name Terminal-Icons
 
-# fastfetch
-fastfetch
-
-# Aliases
-Set-Alias backup_configs "$env:USERPROFILE\configFiles\backup-config-skript.ps1"
-
 # functions
+function backup_config {
+	py $env:USERPROFILE\configFiles\backup-config-skript.py
+}
+
 function notes {
 	Set-Location "$env:USERPROFILE\Meine Ablage\Vaults\Notes"
 }
 
-# conda
-$CondaExe = "C:\Users\Adnan\anaconda3\Scripts\conda.exe"
+# Load conda only on first use to speed up terminal startup
 function conda {
-	if (Test-Path $CondaExe) {
-        (& $CondaExe "shell.powershell" "hook") | Out-String | Invoke-Expression
-    }
-    Remove-Item Function:\conda -Force
-	conda
+	Remove-Item Function:conda
+
+	#region conda initialize
+	# !! Contents within this block are managed by 'conda init' !!
+	If (Test-Path "C:\Users\Adnan\miniconda3\Scripts\conda.exe") {
+		(& "C:\Users\Adnan\miniconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Invoke-Expression
+	}
+	#endregion
+
+	conda @args
 }

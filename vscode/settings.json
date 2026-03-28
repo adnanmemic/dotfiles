@@ -1,5 +1,5 @@
 {
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
   "editor.fontFamily": "FiraCode Nerd Font",
   "editor.lineNumbers": "relative",
   "editor.insertSpaces": true,
@@ -7,6 +7,7 @@
   "editor.cursorSurroundingLines": 8,
   "editor.cursorSurroundingLinesStyle": "default",
   "editor.snippetSuggestions": "top",
+  "editor.rulers": [80],
   
   "terminal.integrated.fontSize": 14,
   
@@ -16,8 +17,10 @@
 
   "chat.agent.enabled": false,
 
+  "latex-workshop.view.pdf.invert": 0.85,
+
   "extensions.experimental.affinity": {
-    "vscodevim.vim": 1,
+    "vscodevim.vim": 1
   },
 
   "vim.leader": " ",
@@ -63,7 +66,7 @@
     {
       "before": ["K"],
       "commands": ["editor.action.showHover"]
-    },
+    }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
