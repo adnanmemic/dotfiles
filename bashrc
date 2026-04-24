@@ -12,6 +12,15 @@ export PAGER=less
 export EDITOR=nvim
 export VISUAL=nvim
 
+export GROFF_NO_SGR=1
+
+export LESS_TERMCAP_md=$'\e[1;38;5;210m' # bold + red
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;33;44m' # highlight + yellow + blue background
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[4;38;5;157m' # underline + green
+export LESS_TERMCAP_ue=$'\e[0m'
+
 #### PATH
 export PATH=$PATH:/usr/local/go/bin
 
@@ -42,9 +51,11 @@ else
 fi
 
 ##### PROMPT
-color1="\e[38;5;81m"
-color2="\e[38;5;210m"
-color3="\e[38;5;157m"
+# <user> - <hostname> [hh:MM:ss] <cwd> $^ 
+
+color1="\e[38;5;81m" # blue
+color2="\e[38;5;210m" # red 
+color3="\e[38;5;157m" # green
 color_reset="\e[0m"
 
 # user
@@ -60,7 +71,7 @@ PS1+="[\[$color2\]\t\[$color_reset\]] "
 PS1+="\[$color3\]\w\[$color_reset\] "
 
 # prompt character
-PS1+="\[$color1\]\$\[$color_reset\] "
+PS1+="\[$color1\]\\$\[$color_reset\] "
 
 #### LOAD EXTERNAL FILES
 . $HOME/.bash_aliases 2>/dev/null || true
