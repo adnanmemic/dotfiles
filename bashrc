@@ -30,6 +30,8 @@ export PATH=$JAVA_HOME/bin:$PATH
 export MAVEN_HOME=/usr/local/apache-maven-3.9.11
 export PATH=$MAVEN_HOME/bin:$PATH
 
+export PATH=$PATH:~/bin
+
 #### SHELL OPTIONS
 shopt -s histappend
 shopt -s cdspell
