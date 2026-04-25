@@ -11,6 +11,7 @@ export HISTCONTROL=ignoreboth
 export PAGER=less
 export EDITOR=nvim
 export VISUAL=nvim
+export GREP_COLORS='ms=1;31' # red
 
 export GROFF_NO_SGR=1
 
@@ -42,8 +43,9 @@ shopt -s dirspell
 alias bat='batcat --pager=cat'
 
 # enable color support for grep (if possible)
-grep --color=auto '' < /dev/null &>/dev/null &&
+if printf 'x\n' | grep --color=auto x &>/dev/null; then
 	alias grep='grep --color=auto'
+fi
 
 # enable color support of ls
 if ls --color=auto &>/dev/null; then
