@@ -55,27 +55,31 @@ else
 fi
 
 ##### PROMPT
-# <user> - <hostname> [hh:MM:ss] <cwd> $^ 
-
-color1="\e[38;5;81m" # blue
-color2="\e[38;5;210m" # red 
-color3="\e[38;5;157m" # green
-color_reset="\e[0m"
+# <user> - <hostname> hh:MM:ss <cwd> $
 
 # user
-PS1="\[$color1\]\u\[$color_reset\] - "
+PS1='\[\e[38;5;81m\]\u\[\e[0m\] - ' # blue
 
 # hostname
-PS1+="\[$color1\]\h\[$color_reset\] "
+PS1+='\[\e[38;5;81m\]\h\[\e[0m\] ' # blue
 
 # time
-PS1+="[\[$color2\]\t\[$color_reset\]] "
+PS1+='\[\e[38;5;210m\]\t\[\e[0m\] ' # red
 
 # pwd
-PS1+="\[$color3\]\w\[$color_reset\] "
+PS1+='\[\e[38;5;157m\]\w\[\e[0m\] ' # green
 
 # prompt character
-PS1+="\[$color1\]\\$\[$color_reset\] "
+PS1+='\[\e[38;5;81m\]\$\[\e[0m\] ' # blue
+
+#### XTRACE 
+# [debug] (linenumber)
+
+PS4='\e[31m[debug]\e[0m '
+
+PS4+='\e[36m($LINENO)\e[0m '
+
+export PS4
 
 #### LOAD EXTERNAL FILES
 . $HOME/.bash_aliases 2>/dev/null || true
