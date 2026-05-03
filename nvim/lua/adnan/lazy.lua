@@ -21,4 +21,5 @@ require("lazy").setup({
     -- import your plugins
     { import = "adnan.plugins" },
   },
+  rocks = { enabled = false }
 })
