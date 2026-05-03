@@ -25,13 +25,15 @@ export LESS_TERMCAP_ue=$'\e[0m'
 #### PATH
 export PATH=$PATH:/usr/local/go/bin
 
-export JAVA_HOME=/usr/local/jdk-23.0.2
+export JAVA_HOME=/usr/local/java/jdk-23.0.2
 export PATH=$JAVA_HOME/bin:$PATH
 
-export MAVEN_HOME=/usr/local/apache-maven-3.9.11
+export MAVEN_HOME=/usr/local/maven/apache-maven-3.9.11
 export PATH=$MAVEN_HOME/bin:$PATH
 
 export PATH=$PATH:~/bin
+
+export PATH=$PATH:/usr/local/nvim/12.2
 
 #### SHELL OPTIONS
 shopt -s histappend
