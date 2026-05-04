@@ -57,22 +57,25 @@ else
 fi
 
 ##### PROMPT
-# <user> - <hostname> hh:MM:ss <cwd> $
+# (exitcode) <user> - <hostname> hh:MM:ss <cwd> $
 
-# user
-PS1='\[\e[38;5;81m\]\u\[\e[0m\] - ' # blue
+# exitcode - color: red
+PS1='$(exit=$?; (($exit != 0)) && printf "\[\e[38;5;210m($exit) \e[0m\]")'
 
-# hostname
-PS1+='\[\e[38;5;81m\]\h\[\e[0m\] ' # blue
+# user - color: blue
+PS1+='\[\e[38;5;81m\]\u\[\e[0m\] - '
 
-# time
-PS1+='\[\e[38;5;210m\]\t\[\e[0m\] ' # red
+# hostname - color: blue
+PS1+='\[\e[38;5;81m\]\h\[\e[0m\] '
 
-# pwd
-PS1+='\[\e[38;5;157m\]\w\[\e[0m\] ' # green
+# time - color: orange
+PS1+='\[\e[38;5;215m\]\t\[\e[0m\] '
 
-# prompt character
-PS1+='\[\e[38;5;81m\]\$\[\e[0m\] ' # blue
+# pwd - color: green
+PS1+='\[\e[38;5;157m\]\w\[\e[0m\] '
+
+# prompt character - color: blue
+PS1+='\[\e[38;5;81m\]\$\[\e[0m\] '
 
 #### XTRACE 
 # [debug] (linenumber)
@@ -81,16 +84,14 @@ PS4='\e[31m[debug]\e[0m '
 
 PS4+='\e[36m($LINENO)\e[0m '
 
-export PS4
-
 #### LOAD EXTERNAL FILES
-. $HOME/.bash_aliases 2>/dev/null || true
+. $HOME/.bash_aliases 2>/dev/null
 
 # load completion
 . /usr/share/bash-completion/bash_completion 2>/dev/null || 
 	. /etc/bash_completion 2>/dev/null
 
-# miniconda
+#### MINICONDA
 conda() {
 	unset -f conda
 
