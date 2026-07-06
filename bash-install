@@ -5,6 +5,7 @@ files=(
 	bash_profile
 	bashrc
 	condarc
+	gitconfig
 )
 
 for file in "${files[@]}"; do 
