@@ -6,6 +6,7 @@ files=(
 	bashrc
 	condarc
 	gitconfig
+	latexmkrc
 )
 
 for file in "${files[@]}"; do 
